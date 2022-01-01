@@ -2,10 +2,14 @@ import speech_recognition as sr
 import pyttsx3
 import time
 import webbrowser
+import os
+import subprocess
+
 
 engine=pyttsx3.init('sapi5')
-voices=engine.getProperty('voices')
-engine.setProperty('voice','voices[1].id')
+voices = engine.getProperty('voices')
+engine.setProperty('rate', 110)
+engine.setProperty('voice', voices[1].id)
 
 
 
@@ -23,11 +27,14 @@ def get_input():
         print("failed")
         return None
 
+
 def speak(text):
     engine.say(text)
     engine.runAndWait()
 
+
 def process(statement):
+    
     if 'open youtube' in statement:
         webbrowser.open_new_tab("https://www.youtube.com")
         speak("youtube is open now")
@@ -44,7 +51,7 @@ def process(statement):
         time.sleep(5)
 
     elif 'open vlc' in statement:
-        pass
+       os.startfile('b.mp3')
 
     
 
@@ -56,7 +63,10 @@ if __name__=='__main__':
 
 
     while True:
-        speak("Tell me how can I help you now?")
+        speak("welcome to the world")       
+
+
+
         a=input("Enter to continue")
         statement = get_input()
         if statement==None:
