@@ -7,7 +7,7 @@ import time
 import psutil
 import speech_recognition as sr
 import webbrowser
-
+import requests
 
 #for voice in voices:
 #    print(voice, voice.id)

@@ -1,7 +1,6 @@
 from ui import *
 from PyQt5.QtWidgets import *
 from utils import *
-import requests
 
 class Window(QtWidgets.QMainWindow):
     def __init__(self):
@@ -10,7 +9,7 @@ class Window(QtWidgets.QMainWindow):
         self.ui.setupUi(self)
         self.click()
         self.r = sr.Recognizer()
-        self.engine=pyttsx3.init("sapi5")
+        self.engine=pyttsx3.init()
         voices = self.engine.getProperty("voices")
         self.engine.setProperty("rate", 130)
         self.engine.setProperty("voice", voices[1].id)
