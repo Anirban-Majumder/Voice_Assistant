@@ -110,7 +110,7 @@ class Window(QtWidgets.QMainWindow):
             webbrowser.open_new_tab("https://timesofindia.indiatimes.com/home/headlines")
             self.speak('Here are some headlines from the Times of India, Happy reading')
 
-        elif 'search'  in statement:
+        elif 'search '  in statement:
             statement = statement.replace("search ", "")
             statement = statement.replace("for ", "")
             statement = statement.replace("google ", "")
@@ -118,7 +118,7 @@ class Window(QtWidgets.QMainWindow):
             webbrowser.open_new_tab("https://www.google.com/search?q=" + statement)
 
 
-        elif "play" in statement:
+        elif "play " in statement:
 
             statement = statement.replace("play ","")
             song=0
@@ -147,11 +147,7 @@ class Window(QtWidgets.QMainWindow):
             stop(statement)
             self.speak(statement+" has been stopped.")
 
-        elif "open" in statement:
-            statement=statement.replace("open ","")
-            statement=statement.replace(" ","")
-            statement+='.exe'
-
+       
         elif "kill yourself" in statement:
             self.speak("initiating self destruction in 5 seconds")
             i=5
@@ -163,15 +159,19 @@ class Window(QtWidgets.QMainWindow):
             self.engine.setProperty("rate", 130)
             self.speak(disrespect())
 
-        elif "weather" in statement:
+        elif "weather " in statement:
+            statement=statement.replace("weather","")
+            statement=statement.replace("in","")
+            statement=statement.replace("today","")
+            statement=statement.replace(" ","")
             api_key="8ef61edcf1c576d65d836254e11ea420"
             base_url="https://api.openweathermap.org/data/2.5/weather?"
-            self.speak("whats the city name ?")
-            city_name=self.get_input()
+            self.speak("Checking weather in "+statement)
+            city_name=statement
             complete_url=base_url+"appid="+api_key+"&q="+city_name
             response = requests.get(complete_url)
             x=response.json()
-            if x["cod"]!="404":
+            if x["cod"]!="404" and statement!="":
                 y=x["main"]
                 current_temperature = y["temp"]
                 current_humidiy = y["humidity"]
@@ -185,7 +185,7 @@ class Window(QtWidgets.QMainWindow):
                       str(weather_description))
                 
             else:
-                self.speak(" City Not Found ")
+                self.speak(" City Not Found,\nplease say weather in <your city name>")
 
 
         else:
