@@ -33,6 +33,8 @@ class Window(QtWidgets.QMainWindow):
             self.process(statement)
         self.ui.activate_button.setStyleSheet(self.ui.default)
         self.ui.activate_button.repaint()
+        self.ui.direct.setText("Activate to Start listening")
+        self.ui.direct.repaint()
 
     def keyPressEvent(self, event):
         #print(event.key())
