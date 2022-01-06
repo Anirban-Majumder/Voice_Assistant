@@ -187,6 +187,14 @@ class Window(QtWidgets.QMainWindow):
             else:
                 self.speak(" City Not Found,\nplease say weather in <your city name>")
 
+        elif 'who are you' in statement or 'what can you do' in statement:
+            self.speak('I am Ani-Assitant version 1 point O your persoanl assistant. I am programmed to minor tasks like'
+                  'opening youtube,google chrome,gmail and stackoverflow ,predict time,take a photo,search google,predict weather' 
+                  'in different cities , get top headline news from times of india too!')
+
+
+        elif "who made you" in statement or "who created you" in statement or "who discovered you" in statement:
+            self.speak("I was built by Anirban Majumder.")
 
         else:
             self.speak("Sorry, I can not do that.")
