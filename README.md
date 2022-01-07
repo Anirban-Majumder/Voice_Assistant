@@ -29,6 +29,11 @@ Before running any commands, make sure you're in the source directory. Also, be 
 for your system. For example, your Python interpreter may be run by calling `python3.8` rather than `python3`. In these examples,
 I will be using `python`.
 
+clone repository using
+```
+git clone https://github.com/anirbanmajumder0/Voice_Assistant
+```
+
 Once everything is installed, type
 ```
 python main.py
