@@ -33,7 +33,6 @@ I will be using `python`.
 Once everything is installed, type
 ```
 python main.py
-
 ```
 in your terminal to run the program.
 
@@ -45,7 +44,7 @@ To learn more about how to contribute, contact <contact@anirbanmajumder.tech>
 
 ### License
 
-Voice_Assistant is licensed under the MIT License. For more information, see [LICENSE.txt](LICENSE.txt).
+Voice_Assistant is licensed under the MIT License. For more information, see [LICENSE.txt](https://github.com/anirbanmajumder0/Voice_Assistant/blob/main/LICENSE).
 
 ### Finding the Software
 
