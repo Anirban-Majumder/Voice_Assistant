@@ -1,0 +1,4 @@
+PYQt5
+psutil
+speech_recognition
+pyttsx3
