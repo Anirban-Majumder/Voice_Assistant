@@ -1,4 +1,4 @@
 PYQt5
 psutil
-speech_recognition
+speechrecognition
 pyttsx3
