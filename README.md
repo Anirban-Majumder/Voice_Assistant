@@ -1,16 +1,14 @@
 ## Voice_Assistant
  
 
-# This is a voice assistant, similar to Siri, Google Assistant, and Amazon Alexa, but with many differences and limitations
+# 👋 This is a voice assistant, similar to Siri, Google Assistant, and Amazon Alexa, but with many differences and limitations
 
 
-## Installation Prerequisites
-
-### Requirements
+### 📝Requirements
 
 #### Python Version
 
-You will need to install and run VoiceAssistant with Python 3.8 or newer. Download and install the correct
+You will need to install Python 3.8 or newer with pip to run VoiceAssistant. Download and install the correct
 build and version of Python for your operating system [here](https://python.org/downloads).
 
 **macOS Users:** If you prefer, you can install Python via Homebrew rather than from source.
@@ -24,36 +22,36 @@ build and version of Python for your operating system [here](https://python.org/
 * `speechrecognition`
 
 
-### Installing and Running the software
+### 📜 Set up and Running the software
 
 1. Clone the repository
 
-```bash
+```
 git clone https://github.com/anirbanmajumder0/Voice_Assistant
 ```
 
 2. Change the working directory
 
-```bash
+```
 cd Voice_Assistant\src
 ```
 
 3. Install dependencies
 
-```bash
+```
 pip install -r requirements.txt
 ```
 
 4. Run the app
 
-```bash
+```
 python main.py
 ```
 
 That's All!!!
 
 
-## Contributing
+## 🤝 Contributing
 
 Any kind of positive contribution is welcome! Please help to grow by contributing to the project.
 
