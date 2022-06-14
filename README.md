@@ -42,13 +42,18 @@ in your terminal to run the program.
 
 ## Contributing
 
-To learn more about how to contribute, contact <contact@anirbanmajumder.tech>
+Any kind of positive contribution is welcome! Please help to grow by contributing to the project.
+
+If you wish to contribute, you can work on any feature or bugs. After adding your code, please send us a Pull Request.
+
+> Please read [`CONTRIBUTING`](CONTRIBUTING.md) for details on our [`CODE OF CONDUCT`](CODE_OF_CONDUCT.md), and the process for submitting pull requests to us.
+
 
 ## Software Information
 
 ### License
 
-Voice_Assistant is licensed under the MIT License. For more information, see [LICENSE.txt](https://github.com/anirbanmajumder0/Voice_Assistant/blob/main/LICENSE).
+Voice_Assistant is licensed under the MIT License. For more information, see the [`LICENSE`](LICENSE) file for details.
 
 ### Finding the Software
 
@@ -57,8 +62,7 @@ Voice_Assistant is free and open-source software. You can find the code on
 
 ### Reporting Bugs
 
-To report any bugs, contact me by email at <contact@anirbanmajumder.tech> or raise an
-[issue on Github](https://github.com/anirbanmajumder0/Voice_Assistant/issues).
+To report any bugs, raise an [issue on Github](https://github.com/anirbanmajumder0/Voice_Assistant/issues/new?assignees=anirbanmajumder0&labels=&template=bug_report.md) or contact me by email at <contact@anirbanmajumder.tech> .
 
 ### Feature Requests
 
