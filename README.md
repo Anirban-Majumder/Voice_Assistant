@@ -66,5 +66,4 @@ To report any bugs, raise an [issue on Github](https://github.com/anirbanmajumde
 
 ### Feature Requests
 
-Feature requests for VoiceAssistant are welcome! You can send them in by email or
-raise an issue on the repo. When you do, create the feature request issue.
+To request Features for VoiceAssistant are welcome! raise an feature request [issue on Github](https://github.com/anirbanmajumder0/Voice_Assistant/issues/new?assignees=anirbanmajumder0&labels=&template=feature_request.md) or contact me by email at <contact@anirbanmajumder.tech> .
