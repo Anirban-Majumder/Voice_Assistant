@@ -23,22 +23,35 @@ build and version of Python for your operating system [here](https://python.org/
 * `pyttsx3`
 * `speechrecognition`
 
+
 ### Installing and Running the software
 
-Before running any commands, make sure you're in the source directory. Also, be sure to use the correct Python versions/commands
-for your system. For example, your Python interpreter may be run by calling `python3.8` rather than `python3`. In these examples,
-I will be using `python`.
+1. Clone the repository
 
-clone repository using
-```
+```bash
 git clone https://github.com/anirbanmajumder0/Voice_Assistant
 ```
 
-Once everything is installed, type
+2. Change the working directory
+
+```bash
+cd Voice_Assistant\src
 ```
+
+3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+4. Run the app
+
+```bash
 python main.py
 ```
-in your terminal to run the program.
+
+That's All!!!
+
 
 ## Contributing
 
