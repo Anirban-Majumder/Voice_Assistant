@@ -2,3 +2,5 @@ PYQt5
 psutil
 speechrecognition
 pyttsx3
+requests
+PyAudio

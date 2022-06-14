@@ -9,16 +9,18 @@
 You will need to install Python 3.8 or newer with pip to run VoiceAssistant. Download and install the correct
 build and version of Python for your operating system [here](https://python.org/downloads).
 
-**macOS Users:** If you prefer, you can install Python via Homebrew rather than from source.
 
 #### PyPI Requirements (`pip` requirements)
 
-* `pyaudio`
+* `PyAudio`
 * `PYQt5`
 * `psutil`
 * `pyttsx3`
 * `speechrecognition`
+* `requests`
 
+**macOS Users:** If you prefer, you can install Python via Homebrew rather than from source.
+**windows Users:** Current using pip to install PyAudio does not work, you need to use PyAudio wheel to install or have the required Microsoft C++ Build Tools.
 
 ### 📜 Set up and Running the software
 
