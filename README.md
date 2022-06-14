@@ -62,7 +62,7 @@ Voice_Assistant is free and open-source software. You can find the code on
 
 ### Reporting Bugs
 
-To report any bugs, raise an [issue on Github](https://github.com/anirbanmajumder0/Voice_Assistant/issues/new?assignees=anirbanmajumder0&labels=&template=bug_report.md) or contact me by email at <contact@anirbanmajumder.tech> .
+To report any bugs, raise an [issue on Github](https://github.com/anirbanmajumder0/Voice_Assistant/issues/new?assignees=anirbanmajumder0&labels=&template=bug_report.md) .
 
 ### Feature Requests
 
