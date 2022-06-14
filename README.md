@@ -19,7 +19,7 @@ build and version of Python for your operating system [here](https://python.org/
 * `speechrecognition`
 * `requests`
 
-**macOS Users:** If you prefer, you can install Python via Homebrew rather than from source.
+**macOS Users:** If you prefer, you can install Python via Homebrew rather than from source.\
 **windows Users:** Current using pip to install PyAudio does not work, you need to use PyAudio wheel to install or have the required Microsoft C++ Build Tools.
 
 ### 📜 Set up and Running the software
