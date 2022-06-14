@@ -1,8 +1,6 @@
 ## Voice_Assistant
  
-
 # 👋 This is a voice assistant, similar to Siri, Google Assistant, and Amazon Alexa, but with many differences and limitations
-
 
 ### 📝Requirements
 
@@ -33,7 +31,7 @@ git clone https://github.com/anirbanmajumder0/Voice_Assistant
 2. Change the working directory
 
 ```
-cd Voice_Assistant\src
+cd Voice_Assistant/src
 ```
 
 3. Install dependencies
@@ -48,16 +46,16 @@ pip install -r requirements.txt
 python main.py
 ```
 
-That's All!!!
+That's All !!!
 
 
 ## 🤝 Contributing
 
 Any kind of positive contribution is welcome! Please help to grow by contributing to the project.
 
-If you wish to contribute, you can work on any feature or bugs. After adding your code, please send us a Pull Request.
+If you wish to contribute, you can work on any feature or bugs. After adding your code, please send a Pull Request.
 
-> Please read [`CONTRIBUTING`](CONTRIBUTING.md) for details on our [`CODE OF CONDUCT`](CODE_OF_CONDUCT.md), and the process for submitting pull requests to us.
+> Please read [`CONTRIBUTING`](CONTRIBUTING.md) for details on [`CODE OF CONDUCT`](CODE_OF_CONDUCT.md), and the process for submitting pull requests .
 
 
 ## ℹ️ Software Information
