@@ -147,16 +147,16 @@ class Window(QtWidgets.QMainWindow):
             self.speak(statement+" has been stopped.")
 
        
-        elif "kill yourself" in statement:
-            self.speak("initiating self destruction in 5 seconds")
-            i=5
-            self.engine.setProperty("rate", 200)
-            while(i):       
-                self.speak(i)
-                time.sleep(0.1)
-                i-=1
-            self.engine.setProperty("rate", 130)
-            self.speak(disrespect())
+        #elif "kill yourself" in statement:
+        #    self.speak("initiating self destruction in 5 seconds")
+        #    i=5
+        #    self.engine.setProperty("rate", 200)
+        #    while(i):       
+        #        self.speak(i)
+        #        time.sleep(0.1)
+        #        i-=1
+        #    self.engine.setProperty("rate", 130)
+        #    self.speak(disrespect())
 
         elif "weather " in statement:
             statement=statement.replace("weather","")
