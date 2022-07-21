@@ -10,6 +10,8 @@ class Ui_Assistant(object):
     def setupUi(self, Assistant):
         Assistant.setObjectName("Assistant")
         Assistant.resize(450, 400)
+        Assistant.setFixedWidth(450)
+        Assistant.setFixedHeight(400)
         Assistant.setWindowIcon(QtGui.QIcon('iicon.png'))
         self.centralwidget = QtWidgets.QWidget(Assistant)
         self.centralwidget.setObjectName("centralwidget")
