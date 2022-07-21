@@ -50,6 +50,8 @@ python main.py
 
 That's All !!!
 
+**macOS Users & linux Users:** Voice_Assistant is only test on windows, so There might be some issues ...
+
 
 ## 🤝 Contributing
 
