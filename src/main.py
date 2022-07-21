@@ -65,8 +65,8 @@ class Window(QtWidgets.QMainWindow):
 
     def printxt(self,text):
         print(text)
-        if len(text)>45 and "\n" not in text:
-            text=text[:45] + '\n' + text[45:]
+        if len(text)>30 and "\n" not in text:
+            text=text[:30] + '\n' + text[30:]
         self.ui.output.setText(text)
         self.ui.output.repaint()
 
