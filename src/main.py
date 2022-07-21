@@ -24,7 +24,7 @@ class Window(QtWidgets.QMainWindow):
     def eql(self):
         self.ui.direct.setText(" ")
         self.ui.direct.repaint()
-        self.ui.activate_button.setStyleSheet(" border-radius: 100px;background:#00FF00")
+        self.ui.activate_button.setStyleSheet(" border-radius: 100px; background:#00FF00")
         self.ui.activate_button.repaint()
         statement = self.get_input()
         if statement!=None:
@@ -186,10 +186,10 @@ class Window(QtWidgets.QMainWindow):
             else:
                 self.speak(" City Not Found,\nplease say weather in <your city name>")
 
-        elif 'who are you' in statement or 'what can you do' in statement:
-            self.speak('I am Ani-Assitant version 1 point O your persoanl assistant. I am programmed to minor tasks like'
-                  'opening youtube,google chrome,gmail and stackoverflow ,predict time,take a photo,search google,predict weather' 
-                  'in different cities , get top headline news from times of india too!')
+        elif 'commands' in statement or 'help' in statement or 'who are you' in statement or 'what are you' in statement or 'what can you do' in statement:
+            self.speak('I am a Voice-Assitant version 1 point O your persoanl assistant. I am programmed to minor tasks like'
+                  'opening youtube, google chrome, gmail and stackoverflow, predict time, take a photo, search google, predict weather' 
+                  'in different cities, get top headline news from times of india too!')
 
 
         elif "who made you" in statement or "who created you" in statement or "who discovered you" in statement:

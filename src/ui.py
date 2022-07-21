@@ -21,7 +21,7 @@ class Ui_Assistant(object):
         self.activate_button.setGeometry(QtCore.QRect(125, 50, 200, 200))
         font = QtGui.QFont()
         font.setFamily("Freestyle Script")
-        font.setPointSize(55)
+        font.setPointSize(35)
         self.activate_button.setFont(font)
         self.default="""QPushButton {\n
     color: #333;\n
