@@ -8,7 +8,8 @@ import psutil
 import speech_recognition as sr
 import webbrowser
 import requests
-
+import urllib.request
+import re
 #for voice in voices:
 #    print(voice, voice.id)
 
