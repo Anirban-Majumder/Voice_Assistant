@@ -8,6 +8,9 @@ from PyQt5.QtCore import (
 )
 
 
+# load config
+config = loadConfig()
+
 
 class Worker(QObject):
     started = pyqtSignal()
@@ -17,7 +20,7 @@ class Worker(QObject):
     r = sr.Recognizer()
     engine=pyttsx3.init()
     voices = engine.getProperty("voices")
-    engine.setProperty("rate", 130)
+    engine.setProperty("rate", 150)
     engine.setProperty("voice", voices[0].id)
 
 
@@ -28,13 +31,17 @@ class Worker(QObject):
         if statement!=None:
             statement = statement.lower()
         else:
-            return
+            statement = ""
 
         # add preferences and alert /alarm /reminder via json file
+        if "chrome" in statement or "browser" in statement or "firefox" in statement:
+            webbrowser.open_new_tab("https://www.google.com")
+            statement = statement.replace("open ", "")
+            self.speak(f"{statement} is open now")
 
-        if "open youtube" in statement:
+        elif "open youtube" in statement and not ("and" in statement or "play" in statement):
             webbrowser.open_new_tab("https://www.youtube.com")
-            self.speak("youtube is open now")
+            self.speak("Youtube is open now")
 
         elif "open google" in statement and not ("and" in statement or "search" in statement):
             webbrowser.open_new_tab("https://www.google.com")
@@ -42,7 +49,7 @@ class Worker(QObject):
 
         elif "open gmail" in statement:
             webbrowser.open_new_tab("https://www.gmail.com")
-            self.speak("Google Mail open now")
+            self.speak("GMail open now")
 
         elif "open stackoverflow" in statement:
             webbrowser.open_new_tab("https://stackoverflow.com")
@@ -51,6 +58,10 @@ class Worker(QObject):
         elif "open discord" in statement:
             webbrowser.open_new_tab("https://discord.com")
             self.speak("Here is Discord")
+
+        elif "open spotify" in statement:
+            webbrowser.open_new_tab("https://open.spotify.com/")
+            self.speak("Here is Spotify")
 
         elif "news" in statement:
             webbrowser.open_new_tab("https://www.google.com/search?q=latest+news")
@@ -62,47 +73,43 @@ class Worker(QObject):
             statement = statement.replace("google ", "")
             statement = statement.replace(" ", "+")
             webbrowser.open_new_tab("https://www.google.com/search?q=" + statement)
+            self.speak("Here are some results")
+
+        elif "play" in statement and "video" in statement or "video" in statement:
+            #play the viedo from  youtube
+            statement = statement.replace("play ", "")
+            play_youtube(statement)
+            self.print_txt.emit("Playing in youtube : " + statement)
 
         elif "play " in statement:
-            #play that song from  youtube
             statement = statement.replace("play ", "")
-            self.print_txt.emit("Playing in youtube : " + statement)
-            statement = statement.replace(" ", "+")
-            html = urllib.request.urlopen("https://www.youtube.com/results?search_query=" + statement)
-            video_ids = re.findall(r"watch\?v=(\S{11})", html.read().decode())
-            webbrowser.open_new_tab("https://www.youtube.com/watch?v=" + video_ids[0])
 
-            # for playing in local music
-        #    statement = statement.replace("play ","")
-        #    song=0
-        #    if "random" in statement or "music" in statement:
-        #        songs_found=find_file(".mp3")
-        #        song = random.choice(songs_found[1]) if songs_found[0]!=0 else 0
-        #    else:
-        #        songs_found=find_file(statement)
-        #        song = songs_found[1][0] if songs_found[0]!=0 else 0
-        #
-        #    if song :
-        #        self.print_txt.emit("playing "+song)
-        #        open_file(song)
-        #    else:
-        #        self.speak("sorry, I could not find your song in Music or Downloads")
+            if config["music_player"] == "youtube":
+                play_youtube(statement)
+                self.print_txt.emit("Playing in youtube : " + statement)
+
+            elif config["music_player"] == "spotify":
+                pass
+                #statement = statement.replace(" ", "%20")
+                #html = urllib.request.urlopen("https://open.spotify.com/search/" + statement)
+                #regex search id from row1 of html and play the song
+
+
+            elif config["music_player"] == "local":
+                song = play_local(statement)
+                if song != None:
+                    self.print_txt.emit("playing " + song)
+                    open_file(song)
+                else:
+                    self.speak("sorry, I could not find your song in Music or Downloads")
 
         elif "stop" in statement:
             statement=statement.replace("stop ","")
             stop(statement)
             self.speak(statement+" has been stopped.")
 
-        #elif "kill yourself" in statement:
-        #    self.speak("initiating self destruction in 5 seconds")
-        #    i=5
-        #    self.engine.setProperty("rate", 200)
-        #    while(i):
-        #        self.speak(i)
-        #        time.sleep(0.1)
-        #        i-=1
-        #    self.engine.setProperty("rate", 130)
-        #    self.speak(disrespect())
+        elif "roast me" in statement or "tell me a joke" in statement:
+            self.speak(disrespect())
 
         elif "weather " in statement:
             statement=statement.replace("weather","")
@@ -133,9 +140,9 @@ class Worker(QObject):
                 self.speak(" City Not Found,\nplease say weather in <your city name>")
 
         elif "commands" in statement or "help" in statement or "who are you" in statement or "what are you" in statement or "what can you do" in statement:
-            self.speak("I am a Voice-Assitant version 1 point O your persoanl assistant. I am programmed to minor tasks like"
-                  "opening youtube, google chrome, gmail and stackoverflow, predict time, take a photo, search google, predict weather"
-                  "in different cities, get the latest news too!")
+            self.speak("I am a Voice-Assistant. I am programmed to minor tasks like launching browser opening youtube,"
+                    " gmail and stackoverflow, playing music, playing youtube videos, telling jokes,"
+                    " checking weather in different cities, and get the latest news too!")
 
         elif "who made you" in statement or "who created you" in statement or "who discovered you" in statement:
             self.speak("I was built by Anirban Majumder.")
@@ -144,7 +151,6 @@ class Worker(QObject):
             self.speak("Sorry, I can not do that.")
 
         self.finished.emit()
-        print("finished")
 
 
     def get_input(self):
@@ -169,6 +175,22 @@ class Worker(QObject):
         self.engine.runAndWait()
 
 
+    def wishMe(self):
+        self.started.emit()
+
+        hour=datetime.datetime.now().hour
+        if hour >= 0 and hour < 12:
+            txt = "Hello, Good Morning"
+        elif hour >= 12 and hour < 18:
+            txt = "Hello, Good Afternoon"
+        else:
+            txt = "Hello, Good Evening"
+
+        text = f"{txt}.\nHow may I help you?"
+        self.speak(text)
+        self.finished.emit()
+
+
 
 class Window(QMainWindow):
     def __init__(self):
@@ -176,23 +198,15 @@ class Window(QMainWindow):
         self.ui = Ui_Assistant()
         self.ui.setupUi(self)
         self.ui.activate_button.clicked.connect(self.onClick)
-
-        #self.speak("Loading your super AI personal assistant")
         #self.wishMe()
 
 
     def onClick(self):
-        # starting thread
-        self.thread = QThread()
-        self.worker = Worker()
-        self.worker.moveToThread(self.thread)
 
-        # connecting signals
+        self.createThread()
+
+        # connecting other signals
         self.thread.started.connect(self.worker.process)
-        self.worker.finished.connect(self.thread.quit)
-        self.worker.finished.connect(self.worker.deleteLater)
-        self.thread.finished.connect(self.thread.deleteLater)
-
         self.worker.started.connect(self.updateUi)
         self.worker.print_txt.connect(self.updateOutput)
         self.worker.finished.connect(self.resetUi)
@@ -201,12 +215,14 @@ class Window(QMainWindow):
 
 
     def keyPressEvent(self, event):
-        #print(event.key())
-        if event.key() == Qt.Key_Return or event.key() == Qt.Key_Enter:
-            self.eql()
+        key = event.key()
+        if key == Qt.Key_Return or key == Qt.Key_Enter:
+            self.onClick()
+        if key == Qt.Key_Escape:
+            sys.exit()
 
 
-    def updateOutput(self,text):
+    def updateOutput(self, text):
         print(text)
         if len(text)>30 and "\n" not in text:
             text=text[:30] + "\n" + text[30:]
@@ -215,13 +231,16 @@ class Window(QMainWindow):
 
 
     def wishMe(self):
-        hour=datetime.datetime.now().hour
-        if hour>=0 and hour<12:
-            self.speak("Hello,Good Morning")
-        elif hour>=12 and hour<18:
-            self.speak("Hello,Good Afternoon")
-        else:
-            self.speak("Hello,Good Evening")
+
+        self.createThread()
+
+        # connecting other signals
+        self.thread.started.connect(self.worker.wishMe)
+        self.worker.print_txt.connect(self.updateOutput)
+        self.worker.started.connect(lambda: self.ui.activate_button.setEnabled(False))
+        self.worker.finished.connect(lambda: self.ui.activate_button.setEnabled(True))
+
+        self.thread.start()
 
 
     def resetUi(self):
@@ -242,6 +261,16 @@ class Window(QMainWindow):
         self.ui.activate_button.repaint()
 
 
+    def createThread(self):
+        # starting thread
+        self.thread = QThread()
+        self.worker = Worker()
+        self.worker.moveToThread(self.thread)
+
+        # connecting cleanup signals
+        self.worker.finished.connect(self.thread.quit)
+        self.worker.finished.connect(self.worker.deleteLater)
+        self.thread.finished.connect(self.thread.deleteLater)
 
 
 if __name__ == "__main__":
