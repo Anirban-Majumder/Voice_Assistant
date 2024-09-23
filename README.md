@@ -2,6 +2,8 @@
  
 # 👋 This is a voice assistant, similar to Siri, Google Assistant, and Amazon Alexa, but with many differences and limitations
 
+![voice](https://github.com/user-attachments/assets/3678cf37-1bd5-416a-98e7-f83b7b1dd930)
+
 ### 📝Requirements
 
 #### Python Version
